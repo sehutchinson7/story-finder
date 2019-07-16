@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@esri/arcgis-rest-auth": "^2.1.1",
+    "@esri/arcgis-rest-portal": "^2.1.1",
+    "@esri/arcgis-rest-request": "^2.1.1",
+    "install": "^0.13.0",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-form-data": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
