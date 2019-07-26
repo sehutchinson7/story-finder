@@ -50,10 +50,14 @@ class App extends React.Component {
           <ul>
             {items.map(item => (
               <li key={item.id}>
-                <ol>{item.thumbnail}</ol>
-                <ol>{item.title}</ol>
-                <ol>{item.author}</ol>
-                <ol>{item.description}</ol>
+                <img
+                  src={`https://www.arcgis.com/sharing/rest/content/items/${
+                    item.id
+                  }/info/${item.thumbnail}`}
+                  alt="thumbnail"
+                />
+                {item.title} {item.author}
+                <div dangerouslySetInnerHTML={{ __html: item.description }} />
               </li>
             ))}
           </ul>
