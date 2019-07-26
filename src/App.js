@@ -57,6 +57,10 @@ class App extends React.Component {
                   alt="thumbnail"
                 />
                 {item.title} {item.author}
+                <br />
+                <a href={item.url} alt="story url">
+                  Read story
+                </a>
                 <div dangerouslySetInnerHTML={{ __html: item.description }} />
               </li>
             ))}
