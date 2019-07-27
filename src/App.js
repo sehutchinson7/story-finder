@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
+import StoryButton from "./components/Button.js";
 import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
+//import { Button } from "src/components/Botton.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -56,12 +58,10 @@ class App extends React.Component {
                   }/info/${item.thumbnail}`}
                   alt="thumbnail"
                 />
-                {item.title} {item.author}
+                {item.title} {item.owner}
                 <br />
-                <a href={item.url} alt="story url">
-                  Read story
-                </a>
-                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                <StoryButton href={item.url}>Read story</StoryButton>
+                <div dangerouslySetInnerHTML={{ __html: item.snippet }} />
               </li>
             ))}
           </ul>

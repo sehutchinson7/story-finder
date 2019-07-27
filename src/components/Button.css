@@ -1,0 +1,11 @@
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.btn-secondary {
+  background-color: #008480;
+  font-size: 1rem;
+  font-weight: bold;
+}
