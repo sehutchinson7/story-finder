@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import StoryButton from "./components/Button.js";
+//import StoryButton from "./components/Button.js";
 import StoryCard from "./components/Card.js";
-import { searchItems } from "@esri/arcgis-rest-portal";
+//import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
-//import { Button } from "src/components/Botton.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -49,21 +48,28 @@ class App extends React.Component {
       console.log(items);
       return (
         <div className="App">
-          <h1>Hello, Sara</h1>
-          <StoryCard />
+          <h1>ArcGIS StoryMaps Gallery</h1>
           <ul>
             {items.map(item => (
               <li key={item.id}>
-                <img
+                {/* <img
                   src={`https://www.arcgis.com/sharing/rest/content/items/${
                     item.id
                   }/info/${item.thumbnail}`}
                   alt="thumbnail"
-                />
-                {item.title} {item.owner}
+                /> */}
                 <br />
-                <StoryButton href={item.url}>Read story</StoryButton>
-                <div dangerouslySetInnerHTML={{ __html: item.snippet }} />
+                <StoryCard
+                  src={`https://www.arcgis.com/sharing/rest/content/items/${
+                    item.id
+                  }/info/${item.thumbnail}`}
+                  title={item.title}
+                  owner={item.owner}
+                  snippet={item.snippet}
+                  href={item.url}
+                />
+                {/* <StoryButton href={item.url}>Read story</StoryButton> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: item.snippet }} /> */}
               </li>
             ))}
           </ul>
