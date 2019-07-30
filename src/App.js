@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StoryButton from "./components/Button.js";
+import StoryCard from "./components/Card.js";
 import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
 //import { Button } from "src/components/Botton.js";
@@ -49,6 +50,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <h1>Hello, Sara</h1>
+          <StoryCard />
           <ul>
             {items.map(item => (
               <li key={item.id}>
