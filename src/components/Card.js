@@ -10,7 +10,15 @@ class StoryCard extends React.Component {
         <Card.Img variant="top" src={this.props.src} alt="thumbnail" />
         <Card.Body>
           <div>
-            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Title
+              href={this.props.title}
+              data-toogle="tooltip"
+              data-placement="top"
+              title={this.props.title}
+              alt="story title"
+            >
+              {this.props.title}
+            </Card.Title>
             <p>{this.props.owner}</p>
             <Card.Text>{this.props.snippet}</Card.Text>
           </div>
