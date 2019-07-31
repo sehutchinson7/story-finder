@@ -49,30 +49,20 @@ class App extends React.Component {
       return (
         <div className="App">
           <h1>ArcGIS StoryMaps Gallery</h1>
-          <ul>
+          <div className="grid-container">
             {items.map(item => (
-              <li key={item.id}>
-                {/* <img
-                  src={`https://www.arcgis.com/sharing/rest/content/items/${
-                    item.id
-                  }/info/${item.thumbnail}`}
-                  alt="thumbnail"
-                /> */}
-                <br />
-                <StoryCard
-                  src={`https://www.arcgis.com/sharing/rest/content/items/${
-                    item.id
-                  }/info/${item.thumbnail}`}
-                  title={item.title}
-                  owner={item.owner}
-                  snippet={item.snippet}
-                  href={item.url}
-                />
-                {/* <StoryButton href={item.url}>Read story</StoryButton> */}
-                {/* <div dangerouslySetInnerHTML={{ __html: item.snippet }} /> */}
-              </li>
+              <StoryCard
+                key={item.id}
+                src={`https://www.arcgis.com/sharing/rest/content/items/${
+                  item.id
+                }/info/${item.thumbnail}`}
+                title={item.title}
+                owner={item.owner}
+                snippet={item.snippet}
+                href={item.url}
+              />
             ))}
-          </ul>
+          </div>
         </div>
       );
     }
@@ -80,3 +70,10 @@ class App extends React.Component {
 }
 
 export default App;
+
+{
+  /* <StoryButton href={item.url}>Read story</StoryButton> */
+}
+{
+  /* <div dangerouslySetInnerHTML={{ __html: item.snippet }} /> */
+}

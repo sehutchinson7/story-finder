@@ -1,10 +1,12 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import StoryButton from "./Button";
+import "./Card.css";
 
 class StoryCard extends React.Component {
   render() {
     return (
+      // <div className="grid-container">
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src={this.props.src} alt="thumbnail" />
         <Card.Body>
@@ -14,6 +16,7 @@ class StoryCard extends React.Component {
           <StoryButton href={this.props.href}>Read story</StoryButton>
         </Card.Body>
       </Card>
+      // </div>
     );
   }
 }
