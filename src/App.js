@@ -50,7 +50,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navigation />
-          <h1>ArcGIS StoryMaps Gallery</h1>
+          <h1>Story Gallery</h1>
           <div className="grid-container">
             {items.map(item => (
               <StoryCard
