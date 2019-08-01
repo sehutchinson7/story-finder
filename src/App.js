@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import StoryButton from "./components/Button.js";
 import StoryCard from "./components/Card.js";
+import Navigation from "./components/Navbar.js";
 //import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
 
@@ -48,6 +49,7 @@ class App extends React.Component {
       console.log(items);
       return (
         <div className="App">
+          <Navigation />
           <h1>ArcGIS StoryMaps Gallery</h1>
           <div className="grid-container">
             {items.map(item => (
