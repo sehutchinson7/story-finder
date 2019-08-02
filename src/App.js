@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import StoryButton from "./components/Button.js";
 import StoryCard from "./components/Card.js";
 import Navigation from "./components/Navbar.js";
+import StorySearch from "./components/Search.js";
 //import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
 
@@ -51,6 +52,7 @@ class App extends React.Component {
         <div className="App">
           <Navigation />
           <h1>Story Gallery</h1>
+          <StorySearch />
           <div className="grid-container">
             {items.map(item => (
               <StoryCard
