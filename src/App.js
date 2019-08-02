@@ -25,10 +25,13 @@ class App extends React.Component {
       .then(
         data => {
           console.log(data);
+          console.log(data.total);
+          console.log("hi sara");
           this.setState({
             isLoaded: true,
             current: data,
-            items: data.results
+            items: data.results,
+            total: data.total
           });
         },
         error => {
@@ -41,7 +44,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, items, total } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -53,6 +56,8 @@ class App extends React.Component {
           <Navigation />
           <h1>Story Gallery</h1>
           <StorySearch />
+          <div className="story-count">Total stories: {total}</div>
+          <br />
           <div className="grid-container">
             {items.map(item => (
               <StoryCard
