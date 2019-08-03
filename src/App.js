@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import StoryButton from "./components/Button.js";
 import StoryCard from "./components/Card.js";
 import Navigation from "./components/Navbar.js";
-import StorySearch from "./components/Search.js";
+import SearchBox from "./components/Search.js";
 //import { searchItems } from "@esri/arcgis-rest-portal";
 import "./App.css";
 
@@ -12,9 +12,22 @@ class App extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      query: ""
     };
   }
+
+  handleSearchChange = e => {
+    this.setState({
+      query: e.target.value
+    });
+  };
+
+  //   handleSearch = e => {
+  //   e.preventDefault();
+  //   console.log(this.state.search);
+  // }
+
   //https://esri.github.io/arcgis-rest-js/guides/node/
   //https://esri.github.io/arcgis-rest-js/api/portal/searchItems/
 
@@ -27,6 +40,8 @@ class App extends React.Component {
           console.log(data);
           console.log(data.total);
           console.log("hi sara");
+          console.log(this.state.search);
+
           this.setState({
             isLoaded: true,
             current: data,
@@ -45,6 +60,8 @@ class App extends React.Component {
 
   render() {
     const { error, isLoaded, items, total } = this.state;
+    console.log(this.state.query);
+    console.log(this.handleSearchChange);
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -55,22 +72,56 @@ class App extends React.Component {
         <div className="App">
           <Navigation />
           <h1>Story Gallery</h1>
-          <StorySearch />
+          <SearchBox
+            query={this.state.query}
+            handleSearchChange={this.handleSearchChange}
+          />
+          {/* <SearchBox></SearchBox>
+            input id="story-search"></input>Something: {filteredData}</SearchBox> */}
           <div className="story-count">Total stories: {total}</div>
           <br />
           <div className="grid-container">
-            {items.map(item => (
-              <StoryCard
-                key={item.id}
-                src={`https://www.arcgis.com/sharing/rest/content/items/${
-                  item.id
-                }/info/${item.thumbnail}`}
-                title={item.title}
-                owner={item.owner}
-                snippet={item.snippet}
-                href={item.url}
-              />
-            ))}
+            {items
+              .filter(item => {
+                console.log(item);
+                if (
+                  item.title &&
+                  item.title
+                    .toLowerCase()
+                    .includes(this.state.query.toLowerCase())
+                )
+                  return true;
+                //Only continue if snippet exists
+                if (
+                  item.snippet &&
+                  //item.snippet.toLowerCase() &&
+                  item.snippet
+                    .toLowerCase()
+                    .includes(this.state.query.toLowerCase())
+                )
+                  return true;
+                return false;
+                // return (
+                //   item.title.includes(this.state.query) ||
+                //   item.snippet.includes(this.state.query) ||
+                //   false
+                // );
+                // if false {
+                //   return "No search results found"
+                // }
+              })
+              .map(item => (
+                <StoryCard
+                  key={item.id}
+                  src={`https://www.arcgis.com/sharing/rest/content/items/${
+                    item.id
+                  }/info/${item.thumbnail}`}
+                  title={item.title}
+                  owner={item.owner}
+                  snippet={item.snippet}
+                  href={item.url}
+                />
+              ))}
           </div>
         </div>
       );

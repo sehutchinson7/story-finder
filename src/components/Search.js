@@ -1,15 +1,39 @@
 import React from "react";
 
-const StorySearch = props => {
+function SearchBox(props) {
+  console.log(props);
   return (
-    <form>
-      <input type="text" name="id" placeholder="Search stories" />
-      <button>Go</button>
-    </form>
+    <input
+      value={props.query}
+      placeholder="Search stories"
+      onChange={props.handleSearchChange}
+      autoComplete="on"
+    />
   );
-};
+}
 
-export default StorySearch;
+export default SearchBox;
+// let SearchBox = React.createClass({
+
+//   doSearch:function() {
+//   let query = this.refs.searchInput.value;
+//     this.props.doSearch(query);
+//   },
+
+//     render: function() {
+
+//       return (
+//       <input type="text"
+
+//         ref="searchInput"
+//         placeholder="Search stories"
+//         value={this.props.query}
+//         onChange={this.doSearch}
+//         autocomplete="on"
+//       />
+//       )}
+
+// });
 
 // class StorySearch extends React.Component {
 //   render() {

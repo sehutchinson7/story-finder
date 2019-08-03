@@ -6,7 +6,7 @@ import "./Card.css";
 class StoryCard extends React.Component {
   render() {
     return (
-      <Card style={{ width: "18rem" }}>
+      <Card>
         <Card.Img variant="top" src={this.props.src} alt="thumbnail" />
         <Card.Body>
           <div>
@@ -19,7 +19,10 @@ class StoryCard extends React.Component {
             >
               {this.props.title}
             </Card.Title>
-            <a href={`https://www.arcgis.com/home/user.html?user=${this.props.owner}`}
+            <a
+              href={`https://www.arcgis.com/home/user.html?user=${
+                this.props.owner
+              }`}
               tag="a"
               alt="view author profile"
               rel="noopener noreferrer"
