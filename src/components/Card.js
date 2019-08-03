@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import StoryButton from "./Button";
 import "./Card.css";
 
@@ -19,7 +19,14 @@ class StoryCard extends React.Component {
             >
               {this.props.title}
             </Card.Title>
-            <p>{this.props.owner}</p>
+            <a href={`https://www.arcgis.com/home/user.html?user=${this.props.owner}`}
+              tag="a"
+              alt="view author profile"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {this.props.owner}
+            </a>
             <Card.Text>{this.props.snippet}</Card.Text>
           </div>
           <StoryButton href={this.props.href}>Read story</StoryButton>
