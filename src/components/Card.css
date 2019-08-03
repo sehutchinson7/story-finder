@@ -40,12 +40,6 @@ p {
   font-size: 0.75rem;
 }
 
-@media screen and (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 a {
   color: #001c1b;
   text-decoration: none;
@@ -56,8 +50,27 @@ a {
 a:hover {
   color: #6c757d;
 }
-/* @media screen and (max-width: 400px) {
+
+@media screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1267px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
   .grid-container {
     grid-template-columns: 1fr;
   }
-} */
+}
