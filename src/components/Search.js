@@ -1,4 +1,5 @@
 import React from "react";
+import "./Search.css";
 
 function SearchBox(props) {
   console.log(props);
