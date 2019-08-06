@@ -96,6 +96,7 @@ class Home extends React.Component {
                   src={`https://www.arcgis.com/sharing/rest/content/items/${
                     item.id
                   }/info/${item.thumbnail}`}
+                  id={item.id}
                   title={item.title}
                   owner={item.owner}
                   snippet={item.snippet}

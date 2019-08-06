@@ -2,7 +2,11 @@ import React from "react";
 
 class StoryDetails extends React.Component {
   render() {
-    return null;
+    return (
+      <div>
+        <h1>What up analytics</h1>
+      </div>
+    );
   }
 }
 

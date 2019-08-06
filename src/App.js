@@ -10,11 +10,12 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/info/:storyId" component={StoryDetails} />
-            <Route>
+            <Route path="/" exact component={Home} />
+            <Route path={`/items/${this.props.id}`} component={StoryDetails} />
+            {/* <Redirect to="/" /> */}
+            {/* <Route>
               <h1>Sorry, page not found</h1>
-            </Route>
+            </Route> */}
           </Switch>
         </div>
       </BrowserRouter>
