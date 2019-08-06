@@ -1,13 +1,15 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import StoryButton from "./Button";
 import "./Card.css";
+import StoryInfo from "./Info.js";
 
 class StoryCard extends React.Component {
   render() {
     return (
       <Card>
         <Card.Img variant="top" src={this.props.src} alt="thumbnail" />
+        <StoryInfo />
         <Card.Body>
           <div>
             <Card.Title
