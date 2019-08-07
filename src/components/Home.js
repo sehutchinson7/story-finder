@@ -2,6 +2,7 @@ import React from "react";
 import StoryCard from "./Card.js";
 import Navigation from "./Navbar.js";
 import SearchBox from "./Search.js";
+import Switch from "./Switch.js";
 import "./Home.css";
 
 class Home extends React.Component {
@@ -11,9 +12,18 @@ class Home extends React.Component {
       error: null,
       isLoaded: false,
       items: [],
-      query: ""
+      query: "",
+      toggle: false
     };
   }
+
+  onToggle = e => {
+    console.log(e.target.checked);
+    //this.props.isOn = value;
+    this.setState({
+      toggle: e.target.checked
+    });
+  };
 
   handleSearchChange = e => {
     this.setState({
@@ -58,6 +68,7 @@ class Home extends React.Component {
       return <div>Loading...</div>;
     } else {
       console.log(items);
+      console.log(this.state.toggle);
       return (
         <div className="Home">
           <Navigation />
@@ -68,6 +79,7 @@ class Home extends React.Component {
           />
           <div className="story-count">Total stories: {total}</div>
           <br />
+          <Switch onToggle={this.onToggle}>Toggle to append url</Switch>
           <div className="grid-container">
             {items
               .filter(item => {
@@ -101,6 +113,7 @@ class Home extends React.Component {
                   owner={item.owner}
                   snippet={item.snippet}
                   href={item.url}
+                  isToggled={this.state.toggle}
                 />
               ))}
           </div>

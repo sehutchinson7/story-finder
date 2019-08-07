@@ -4,6 +4,8 @@ import "./Button.css";
 
 class StoryButton extends React.Component {
   render() {
+    console.log("HI");
+    console.log(this.props.id);
     //TODO Replace button color with #00bab5 for branding
     return (
       <div className="button-center">
